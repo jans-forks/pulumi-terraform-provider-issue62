@@ -25,3 +25,5 @@ update_all.sh
 /lambda/cognito-auth/src/config.json
 
 .pulumi/
+
+bin/
