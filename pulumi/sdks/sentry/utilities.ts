@@ -110,8 +110,15 @@ export async function getPackage() : Promise<string | undefined> {
 			const params = new resproto.Parameterization();
 			params.setName("sentry");
 			params.setVersion("0.14.3");
-			params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL2ppYW55dWFuL3NlbnRyeSIsInZlcnNpb24iOiIwLjE0LjMifX0="), c => c.charCodeAt(0)));
-
+			// params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL2ppYW55dWFuL3NlbnRyeSIsInZlcnNpb24iOiIwLjE0LjMifX0="), c => c.charCodeAt(0)));
+            params.setValue(
+                new Uint8Array(
+                  Buffer.from(
+                    "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL2ppYW55dWFuL3NlbnRyeSIsInZlcnNpb24iOiIwLjE0LjMifX0=",
+                    'base64'
+                  )
+                )
+              );
 			const req = new resproto.RegisterPackageRequest();
 			req.setName("terraform-provider");
 			req.setVersion("0.8.0");
