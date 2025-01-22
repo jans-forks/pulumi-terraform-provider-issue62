@@ -1,0 +1,7 @@
+{
+  "name": "@myorg/proj",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google-cloud/run": "0.6.0"
+  }
+}
